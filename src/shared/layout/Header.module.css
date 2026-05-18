@@ -145,6 +145,7 @@
   top: 72px;
   left: 0;
   right: 0;
+  z-index: var(--z-fixed);
   background-color: rgba(245, 240, 232, 0.98);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
