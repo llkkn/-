@@ -1,0 +1,61 @@
+.card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-base) var(--ease-out),
+              box-shadow var(--transition-base) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---------- Padding 变体 ---------- */
+.paddingNone {
+  padding: 0;
+}
+
+.paddingSm {
+  padding: var(--space-4);
+}
+
+.paddingMd {
+  padding: var(--space-6);
+}
+
+.paddingLg {
+  padding: var(--space-8);
+}
+
+.paddingXl {
+  padding: var(--space-12);
+}
+
+/* ---------- 可点击卡片 ---------- */
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  border-color: var(--color-gold);
+}
+
+/* ---------- 无hover效果 ---------- */
+.noHover:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------- 内容区域 ---------- */
+.cardHeader {
+  padding: var(--space-6) var(--space-6) 0;
+}
+
+.cardBody {
+  padding: var(--space-6);
+}
+
+.cardFooter {
+  padding: 0 var(--space-6) var(--space-6);
+}

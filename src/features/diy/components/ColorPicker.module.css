@@ -1,0 +1,135 @@
+.panel {
+  padding: var(--space-3);
+}
+
+/* ---------- 当前颜色预览 ---------- */
+.currentPreview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background-color: rgba(44, 36, 22, 0.04);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+}
+
+.previewSwatch {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.previewInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.previewLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.previewValue {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  font-family: 'Courier New', monospace;
+}
+
+/* ---------- 分区 ---------- */
+.section {
+  margin-bottom: var(--space-4);
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- 颜色网格 ---------- */
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.colorSwatch {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.colorSwatch:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+  z-index: 1;
+}
+
+.colorSwatch.active {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-white), 0 0 0 4px var(--color-primary);
+  transform: scale(1.05);
+}
+
+/* ---------- 自定义颜色 ---------- */
+.customRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.colorInput {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 2px;
+  background: var(--color-white);
+}
+
+.colorInput::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.colorInput::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.hexInput {
+  flex: 1;
+  height: 36px;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  font-size: 0.875rem;
+  font-family: 'Courier New', monospace;
+  color: var(--color-text);
+  transition: border-color var(--transition-fast);
+}
+
+.hexInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(178, 34, 34, 0.1);
+}

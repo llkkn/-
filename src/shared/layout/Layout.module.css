@@ -1,0 +1,5 @@
+.main {
+  flex: 1;
+  padding-top: 72px; /* Header 高度 */
+  min-height: calc(100vh - 72px);
+}

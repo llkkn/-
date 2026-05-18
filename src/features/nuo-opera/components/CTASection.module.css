@@ -1,0 +1,179 @@
+.cta {
+  position: relative;
+  padding: var(--space-24) var(--space-6);
+  background-color: var(--color-dark);
+  overflow: hidden;
+}
+
+/* 背景纹理 */
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(201, 169, 110, 0.03) 2px,
+      rgba(201, 169, 110, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(201, 169, 110, 0.02) 3px,
+      rgba(201, 169, 110, 0.02) 6px
+    );
+  pointer-events: none;
+}
+
+/* 金色装饰角 */
+.cta::after {
+  content: '';
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  width: 60px;
+  height: 60px;
+  border-top: 2px solid rgba(201, 169, 110, 0.3);
+  border-right: 2px solid rgba(201, 169, 110, 0.3);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.content {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.decorLine {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold),
+    transparent
+  );
+  margin: 0 auto var(--space-8);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 400;
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--space-12);
+}
+
+/* ---------- 链接卡片 ---------- */
+.linkCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.linkCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-5);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  transition: all var(--transition-base) var(--ease-out);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.content.visible .linkCard {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.linkCard:hover {
+  background-color: rgba(201, 169, 110, 0.1);
+  border-color: var(--color-gold);
+  transform: translateY(-4px);
+}
+
+.linkIcon {
+  font-size: 2rem;
+  margin-bottom: var(--space-2);
+}
+
+.linkLabel {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+}
+
+.linkDesc {
+  font-family: var(--font-serif);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.linkArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  color: var(--color-gold);
+  font-size: 1rem;
+  margin-top: var(--space-2);
+  transition: all var(--transition-fast);
+}
+
+.linkCard:hover .linkArrow {
+  background-color: var(--color-gold);
+  color: var(--color-dark);
+  border-color: var(--color-gold);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .linkCards {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .cta {
+    padding: var(--space-16) var(--space-4);
+  }
+}

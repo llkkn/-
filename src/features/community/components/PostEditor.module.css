@@ -1,0 +1,246 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+.editor {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+/* ---------- 页头 ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.backBtn:hover {
+  color: var(--color-primary);
+  background-color: rgba(178, 34, 34, 0.06);
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--color-ink);
+}
+
+/* ---------- 表单字段 ---------- */
+.field {
+  margin-bottom: var(--space-6);
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.labelHint {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.08);
+}
+
+.titleInput {
+  font-size: 1.125rem;
+  font-weight: 500;
+  padding: var(--space-4);
+}
+
+.textarea {
+  width: 100%;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.8;
+  resize: vertical;
+  min-height: 200px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.08);
+}
+
+.error {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-error);
+  margin-top: var(--space-1);
+}
+
+/* ---------- 分类选择 ---------- */
+.categoryGroup {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.categoryBtn {
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  background-color: var(--color-white);
+  transition: all var(--transition-fast);
+}
+
+.categoryBtn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.categoryActive {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.categoryActive:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+/* ---------- 图片区域 ---------- */
+.imageArea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.imageItem {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border-light);
+}
+
+.imagePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageRemove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: rgba(26, 26, 26, 0.6);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: background-color var(--transition-fast);
+}
+
+.imageRemove:hover {
+  background-color: var(--color-primary);
+}
+
+.imageUploadBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  width: 100px;
+  height: 100px;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  transition: all var(--transition-fast);
+}
+
+.imageUploadBtn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: rgba(178, 34, 34, 0.03);
+}
+
+/* ---------- 操作按钮 ---------- */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border-light);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space-4) var(--space-4);
+  }
+
+  .editor {
+    padding: var(--space-5);
+  }
+
+  .pageTitle {
+    font-size: 1.375rem;
+  }
+
+  .categoryGroup {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,127 @@
+.intro {
+  padding: var(--space-24) var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.textSide {
+  flex: 1;
+  min-width: 0;
+}
+
+.imageSide {
+  flex: 1;
+  min-width: 0;
+}
+
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 400;
+  color: var(--color-ink);
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--color-gold);
+  margin-top: var(--space-4);
+  border-radius: 2px;
+}
+
+.description {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.9;
+  color: var(--color-text-secondary);
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+/* 金色边框装饰 */
+.imageWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  border-radius: var(--radius-md);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ---------- 滚动动画 ---------- */
+.section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.textSide.visible {
+  transition-delay: 100ms;
+}
+
+.imageSide.visible {
+  transition-delay: 300ms;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    gap: var(--space-10);
+  }
+
+  .imageWrapper {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .intro {
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .imageWrapper {
+    max-width: 100%;
+  }
+}

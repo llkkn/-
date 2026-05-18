@@ -1,0 +1,98 @@
+.page {
+  max-width: var(--breakpoint-xl);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6) var(--space-20);
+  min-height: 80vh;
+}
+
+/* ---------- 页面头部 ---------- */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    var(--color-gold),
+    var(--color-primary),
+    transparent
+  );
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.08em;
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.15em;
+}
+
+/* ---------- 装饰分隔线 ---------- */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin: var(--space-6) 0;
+}
+
+.dividerLine {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+
+.dividerLine:last-child {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+.dividerDiamond {
+  width: 8px;
+  height: 8px;
+  background: var(--color-gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .page {
+    padding: var(--space-8) var(--space-4) var(--space-16);
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 1.625rem;
+  }
+}

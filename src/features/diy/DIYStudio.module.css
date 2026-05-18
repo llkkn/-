@@ -1,0 +1,615 @@
+/* ============================================
+   DIY傩面工作台 - 主页面样式
+   ============================================ */
+
+.studio {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--color-bg-old);
+  overflow: hidden;
+}
+
+/* ---------- 顶部标题栏 ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-dark);
+  border-bottom: 1px solid var(--color-gold-dark);
+  flex-shrink: 0;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+.description {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.headerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.headerBtn:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 2px 8px rgba(178, 34, 34, 0.3);
+}
+
+/* ---------- 主工作区（三栏布局） ---------- */
+.workspace {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ---------- 工具功能介绍提示 ---------- */
+.toolTip {
+  position: absolute;
+  top: 12px;
+  left: 76px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, rgba(196, 30, 30, 0.92), rgba(139, 0, 0, 0.92));
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  animation: tipSlideIn 0.3s ease-out, tipFadeOut 0.4s ease-in 2.1s forwards;
+  pointer-events: none;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.toolTipName {
+  font-weight: 700;
+  padding-right: 8px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.toolTipDesc {
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+@keyframes tipSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tipFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* ---------- 右侧设置面板 ---------- */
+.settingsPanel {
+  width: 280px;
+  background-color: var(--color-card);
+  border-left: 1px solid var(--color-gold-dark);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* ---------- 标签栏 ---------- */
+.tabBar {
+  display: flex;
+  border-bottom: 1px solid var(--color-gold-dark);
+  background-color: var(--color-dark);
+  flex-shrink: 0;
+}
+
+.tab {
+  flex: 1;
+  padding: var(--space-3) var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.tab:hover {
+  color: var(--color-gold-light);
+  background-color: rgba(201, 169, 110, 0.08);
+}
+
+.tab.activeTab {
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
+  background-color: rgba(201, 169, 110, 0.12);
+}
+
+/* ---------- 标签内容 ---------- */
+.tabContent {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ---------- 移动端抽屉 ---------- */
+.drawerOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-overlay);
+  z-index: var(--z-modal-backdrop);
+  animation: fadeIn var(--transition-base) ease both;
+}
+
+.drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 70vh;
+  background-color: var(--color-card);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  z-index: var(--z-modal);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp var(--transition-slow) ease both;
+  box-shadow: 0 -4px 20px rgba(44, 36, 22, 0.15);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.drawerTitle {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.drawerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--color-bg-old);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.drawerClose:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ---------- 移动端浮动按钮 ---------- */
+.fab {
+  position: fixed;
+  bottom: 72px;
+  right: var(--space-4);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  box-shadow: 0 4px 12px rgba(178, 34, 34, 0.35);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-fixed);
+  transition: all var(--transition-fast);
+}
+
+.fab:hover {
+  background-color: var(--color-primary-dark);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(178, 34, 34, 0.4);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+/* ---------- 动画 ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tutorialFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ============================================
+   新手教程弹窗样式
+   ============================================ */
+
+/* 半透明遮罩层 */
+.tutorialOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(26, 20, 12, 0.75);
+  z-index: calc(var(--z-modal-backdrop, 100) + 10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease both;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* 居中卡片 - 宣纸色背景 */
+.tutorialCard {
+  position: relative;
+  width: 420px;
+  max-width: calc(100vw - 48px);
+  background-color: #F5F0E8;
+  background-image: url('/textures/xuan-paper.webp');
+  background-size: cover;
+  background-blend-mode: overlay;
+  border-radius: var(--radius-xl, 16px);
+  border: 2px solid var(--color-gold, #C9A96E);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(201, 169, 110, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  padding: var(--space-8, 32px) var(--space-8, 32px) var(--space-6, 24px);
+  animation: tutorialFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  text-align: center;
+}
+
+/* 金色装饰线 */
+.tutorialDecorLine {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-gold, #C9A96E) 20%,
+    var(--color-gold, #C9A96E) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  margin-bottom: var(--space-5, 20px);
+}
+
+.tutorialDecorLine:last-child {
+  margin-bottom: 0;
+  margin-top: var(--space-5, 20px);
+}
+
+/* 步骤指示器（圆点） */
+.tutorialSteps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3, 12px);
+  margin-bottom: var(--space-6, 24px);
+}
+
+.tutorialDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(201, 169, 110, 0.25);
+  border: 1.5px solid rgba(201, 169, 110, 0.4);
+  transition: all 0.3s ease;
+}
+
+.tutorialDotActive {
+  background-color: var(--color-gold, #C9A96E);
+  border-color: var(--color-gold, #C9A96E);
+  box-shadow: 0 0 8px rgba(201, 169, 110, 0.5);
+  transform: scale(1.2);
+}
+
+.tutorialDotDone {
+  background-color: var(--color-primary, #B22222);
+  border-color: var(--color-primary, #B22222);
+}
+
+/* 图标容器 */
+.tutorialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-5, 20px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(201, 169, 110, 0.15), rgba(201, 169, 110, 0.05));
+  border: 1.5px solid rgba(201, 169, 110, 0.3);
+  color: var(--color-primary, #B22222);
+}
+
+/* 步骤标题 */
+.tutorialTitle {
+  font-family: var(--font-serif, 'Noto Serif SC', serif);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-ink, #2C2416);
+  margin: 0 0 var(--space-3, 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+}
+
+.tutorialStepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-primary, #B22222);
+  color: var(--color-white, #FFFFFF);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: var(--font-sans, sans-serif);
+  flex-shrink: 0;
+}
+
+/* 步骤描述 */
+.tutorialDesc {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary, #5C4A3A);
+  margin: 0 0 var(--space-6, 24px);
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 操作按钮区域 */
+.tutorialActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tutorialSkip {
+  padding: var(--space-2, 8px) var(--space-3, 12px);
+  font-size: 0.8125rem;
+  font-family: var(--font-sans, sans-serif);
+  color: var(--color-text-muted, #8B7355);
+  background: transparent;
+  border: 1px solid rgba(139, 115, 85, 0.3);
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.tutorialSkip:hover {
+  color: var(--color-ink, #2C2416);
+  border-color: rgba(139, 115, 85, 0.6);
+  background-color: rgba(139, 115, 85, 0.08);
+}
+
+.tutorialNav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+}
+
+.tutorialPrev {
+  padding: var(--space-2, 8px) var(--space-4, 16px);
+  font-size: 0.875rem;
+  font-family: var(--font-sans, sans-serif);
+  font-weight: 500;
+  color: var(--color-text-secondary, #5C4A3A);
+  background: transparent;
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.tutorialPrev:hover {
+  border-color: var(--color-gold, #C9A96E);
+  color: var(--color-ink, #2C2416);
+  background-color: rgba(201, 169, 110, 0.08);
+}
+
+.tutorialNext {
+  padding: var(--space-2, 8px) var(--space-5, 20px);
+  font-size: 0.875rem;
+  font-family: var(--font-sans, sans-serif);
+  font-weight: 600;
+  color: var(--color-white, #FFFFFF);
+  background: linear-gradient(135deg, var(--color-primary, #B22222), var(--color-primary-dark, #8B1A1A));
+  border: 1px solid rgba(178, 34, 34, 0.3);
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.15s ease);
+  box-shadow: 0 2px 8px rgba(178, 34, 34, 0.25);
+}
+
+.tutorialNext:hover {
+  background: linear-gradient(135deg, var(--color-primary-dark, #8B1A1A), var(--color-primary, #B22222));
+  box-shadow: 0 4px 12px rgba(178, 34, 34, 0.35);
+  transform: translateY(-1px);
+}
+
+.tutorialNext:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(178, 34, 34, 0.2);
+}
+
+/* ---------- 移动端适配 ---------- */
+@media (max-width: 768px) {
+  .header {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .headerLeft {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .workspace {
+    flex-direction: column;
+  }
+
+  .settingsPanel {
+    display: none;
+  }
+
+  /* 教程弹窗移动端适配 */
+  .tutorialCard {
+    width: 100%;
+    max-width: calc(100vw - 32px);
+    padding: var(--space-6, 24px) var(--space-6, 24px) var(--space-5, 20px);
+  }
+
+  .tutorialIcon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .tutorialIcon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tutorialTitle {
+    font-size: 1.125rem;
+  }
+
+  .tutorialDesc {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: var(--space-2);
+  }
+
+  .title {
+    font-size: 0.9375rem;
+  }
+
+  .tutorialCard {
+    max-width: calc(100vw - 24px);
+    padding: var(--space-5, 20px);
+    border-radius: var(--radius-lg, 12px);
+  }
+
+  .tutorialActions {
+    flex-direction: column-reverse;
+    gap: var(--space-3, 12px);
+  }
+
+  .tutorialSkip {
+    width: 100%;
+    text-align: center;
+  }
+
+  .tutorialNav {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .tutorialPrev,
+  .tutorialNext {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

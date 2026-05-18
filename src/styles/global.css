@@ -1,0 +1,236 @@
+/* ============================================
+   傩面 — 全局样式变量与重置
+   ============================================ */
+
+/* ---------- CSS 自定义属性 ---------- */
+:root {
+  /* 配色 */
+  --color-primary: #B22222;          /* 朱红 */
+  --color-primary-light: #D44444;
+  --color-primary-dark: #8B1A1A;
+  --color-gold: #C9A96E;             /* 金色 */
+  --color-gold-light: #DCC494;
+  --color-gold-dark: #A8894E;
+  --color-ink: #1A1A1A;              /* 墨黑 */
+  --color-bg: #F5F0E8;               /* 宣纸色背景 */
+  --color-bg-old: #EDE5D5;           /* 旧纸色 */
+  --color-card: #FAF7F0;             /* 卡片色 */
+  --color-dark: #2C2416;             /* 深色 */
+  --color-dark-light: #3D3225;
+  --color-text: #2C2416;
+  --color-text-secondary: #6B5E4F;
+  --color-text-muted: #9B8E7E;
+  --color-border: #E0D5C5;
+  --color-border-light: #EDE5D5;
+  --color-white: #FFFFFF;
+  --color-overlay: rgba(26, 26, 26, 0.6);
+  --color-success: #4A7C59;
+  --color-warning: #C9A96E;
+  --color-error: #B22222;
+
+  /* 字体 */
+  --font-serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  --font-display: 'ZCOOL XiaoWei', 'STKaiti', 'KaiTi', serif;
+  --font-sans: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+  /* 间距系统 (基于4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* 圆角 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* 阴影 */
+  --shadow-sm: 0 1px 2px rgba(44, 36, 22, 0.05);
+  --shadow-md: 0 4px 6px rgba(44, 36, 22, 0.07), 0 2px 4px rgba(44, 36, 22, 0.05);
+  --shadow-lg: 0 10px 15px rgba(44, 36, 22, 0.08), 0 4px 6px rgba(44, 36, 22, 0.04);
+  --shadow-xl: 0 20px 25px rgba(44, 36, 22, 0.1), 0 8px 10px rgba(44, 36, 22, 0.06);
+  --shadow-inner: inset 0 2px 4px rgba(44, 36, 22, 0.06);
+
+  /* 断点 (仅用于参考, 实际媒体查询使用数值) */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1440px;
+
+  /* 过渡 */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* z-index 层级 */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-tooltip: 600;
+}
+
+/* ---------- 全局重置 ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  /* 宣纸纹理背景 */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(44, 36, 22, 0.008) 2px,
+      rgba(44, 36, 22, 0.008) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(44, 36, 22, 0.005) 3px,
+      rgba(44, 36, 22, 0.005) 6px
+    );
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+
+p {
+  margin-bottom: var(--space-4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 滚动条美化 ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-old);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-bg-old);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* Firefox 滚动条 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) var(--color-bg-old);
+}
+
+/* ---------- 选中文本样式 ---------- */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ---------- 焦点可见样式 ---------- */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ---------- 减少动画偏好 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

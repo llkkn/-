@@ -1,0 +1,136 @@
+.comment {
+  position: relative;
+}
+
+.commentInner {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+}
+
+.commentInner + .children .commentInner {
+  border-top: none;
+}
+
+.indentLine {
+  position: absolute;
+  left: 17px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-border-light);
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.commentBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.author {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.time {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.replyTarget {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.replyName {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.content {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  word-break: break-word;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.actionBtn:hover {
+  color: var(--color-primary);
+  background-color: rgba(178, 34, 34, 0.06);
+}
+
+.deleteBtn:hover {
+  color: var(--color-error);
+  background-color: rgba(178, 34, 34, 0.06);
+}
+
+.actionIcon {
+  flex-shrink: 0;
+}
+
+.replyInputWrapper {
+  margin-top: var(--space-3);
+}
+
+.children {
+  margin-left: 18px;
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-border-light);
+}
+
+@media (max-width: 576px) {
+  .children {
+    margin-left: 12px;
+    padding-left: var(--space-3);
+  }
+
+  .commentInner {
+    gap: var(--space-2);
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,144 @@
+.panel {
+  padding: var(--space-3);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--radius-full);
+  background-color: rgba(201, 169, 110, 0.15);
+  color: var(--color-gold-dark);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+/* ---------- 图层列表 ---------- */
+.layerList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-3);
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.layerItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: transparent;
+}
+
+.layerItem:hover {
+  background-color: rgba(44, 36, 22, 0.04);
+}
+
+.layerItem.active {
+  background-color: rgba(178, 34, 34, 0.06);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px rgba(178, 34, 34, 0.08);
+}
+
+/* ---------- 缩略图 ---------- */
+.thumbnail {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.thumbnailContent {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- 图层名称 ---------- */
+.layerName {
+  flex: 1;
+  font-size: 0.8125rem;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.layerItem.active .layerName {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* ---------- 眼睛按钮 ---------- */
+.eyeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--color-gold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.eyeBtn:hover {
+  background-color: rgba(201, 169, 110, 0.12);
+}
+
+.eyeBtn.hidden {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+/* ---------- 添加按钮 ---------- */
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-family: var(--font-sans);
+  transition: all var(--transition-fast);
+}
+
+.addBtn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background-color: rgba(201, 169, 110, 0.05);
+}

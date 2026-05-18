@@ -1,0 +1,141 @@
+.modalContent {
+  max-width: 680px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background-color: var(--color-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-light);
+}
+
+.header {
+  padding: var(--space-8) var(--space-8) var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-ink);
+  letter-spacing: 0.05em;
+}
+
+.region {
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.heritageTag {
+  display: inline-block;
+  padding: 2px 12px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  background-color: rgba(178, 34, 34, 0.08);
+  border: 1px solid rgba(178, 34, 34, 0.2);
+  border-radius: var(--radius-full);
+}
+
+.body {
+  padding: var(--space-6) var(--space-8) var(--space-8);
+}
+
+.block {
+  margin-bottom: var(--space-6);
+}
+
+.block:last-child {
+  margin-bottom: 0;
+}
+
+.blockTitle {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-3);
+  padding-left: var(--space-3);
+  border-left: 3px solid var(--color-gold);
+}
+
+.description {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.featureDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+  margin-top: 10px;
+}
+
+.tagGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.tagGold {
+  color: var(--color-gold-dark);
+  background-color: rgba(201, 169, 110, 0.1);
+  border-color: rgba(201, 169, 110, 0.3);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 576px) {
+  .modalContent {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .header {
+    padding: var(--space-6) var(--space-5) var(--space-3);
+  }
+
+  .body {
+    padding: var(--space-5);
+  }
+}

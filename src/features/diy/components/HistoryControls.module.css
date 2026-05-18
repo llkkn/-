@@ -1,0 +1,144 @@
+.historyControls {
+  /* placeholder - using .controls */
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 var(--space-4);
+  background-color: var(--color-dark);
+  border-top: 1px solid var(--color-gold-dark);
+  color: var(--color-gold-light);
+  flex-shrink: 0;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  color: var(--color-gold-light);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: rgba(201, 169, 110, 0.15);
+  border-color: var(--color-gold-dark);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn.danger:hover:not(:disabled) {
+  background-color: rgba(178, 34, 34, 0.2);
+  border-color: var(--color-primary);
+  color: var(--color-primary-light);
+}
+
+.btn.primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.btn.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btnLabel {
+  font-size: 0.8125rem;
+}
+
+.kbd {
+  display: inline-block;
+  padding: 1px 5px;
+  font-size: 0.6875rem;
+  font-family: var(--font-sans);
+  color: var(--color-text-muted);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  line-height: 1.4;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background-color: rgba(201, 169, 110, 0.3);
+  margin: 0 var(--space-1);
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+.statusSeparator {
+  color: rgba(201, 169, 110, 0.3);
+}
+
+/* ---------- 移动端适配 ---------- */
+@media (max-width: 768px) {
+  .controls {
+    height: 48px;
+    padding: 0 var(--space-2);
+  }
+
+  .kbd {
+    display: none;
+  }
+
+  .btnLabel {
+    display: none;
+  }
+
+  .center {
+    display: none;
+  }
+
+  .btn {
+    padding: var(--space-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,131 @@
+.cta {
+  position: relative;
+  padding: var(--space-24) var(--space-6);
+  background-color: var(--color-dark);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* 背景纹理 */
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(201, 169, 110, 0.03) 2px,
+      rgba(201, 169, 110, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(201, 169, 110, 0.02) 3px,
+      rgba(201, 169, 110, 0.02) 6px
+    );
+  pointer-events: none;
+}
+
+/* 金色装饰角 */
+.cta::after {
+  content: '';
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  width: 60px;
+  height: 60px;
+  border-top: 2px solid rgba(201, 169, 110, 0.3);
+  border-right: 2px solid rgba(201, 169, 110, 0.3);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.decorLine {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold),
+    transparent
+  );
+  margin: 0 auto var(--space-8);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 400;
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--space-10);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 14px 36px;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: 0 4px 15px rgba(201, 169, 110, 0.3);
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 169, 110, 0.4);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+/* ---------- 滚动动画 ---------- */
+.section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 576px) {
+  .cta {
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

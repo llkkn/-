@@ -1,0 +1,225 @@
+/* ============================================
+   傩面 — 字体排版系统
+   ============================================ */
+
+/* ---------- 字号阶梯 ---------- */
+.text-xs {
+  font-size: 0.75rem;    /* 12px */
+  line-height: 1.5;
+}
+
+.text-sm {
+  font-size: 0.875rem;   /* 14px */
+  line-height: 1.5;
+}
+
+.text-base {
+  font-size: 1rem;       /* 16px */
+  line-height: 1.6;
+}
+
+.text-lg {
+  font-size: 1.125rem;   /* 18px */
+  line-height: 1.6;
+}
+
+.text-xl {
+  font-size: 1.25rem;    /* 20px */
+  line-height: 1.5;
+}
+
+.text-2xl {
+  font-size: 1.5rem;     /* 24px */
+  line-height: 1.4;
+}
+
+.text-3xl {
+  font-size: 1.875rem;   /* 30px */
+  line-height: 1.3;
+}
+
+.text-4xl {
+  font-size: 2.25rem;    /* 36px */
+  line-height: 1.25;
+}
+
+.text-5xl {
+  font-size: 3rem;       /* 48px */
+  line-height: 1.2;
+}
+
+.text-6xl {
+  font-size: 3.75rem;    /* 60px */
+  line-height: 1.1;
+}
+
+/* ---------- 响应式字号 ---------- */
+@media (max-width: 768px) {
+  .text-4xl {
+    font-size: 1.875rem; /* 30px */
+  }
+  .text-5xl {
+    font-size: 2.25rem;  /* 36px */
+  }
+  .text-6xl {
+    font-size: 3rem;     /* 48px */
+  }
+}
+
+@media (max-width: 576px) {
+  .text-3xl {
+    font-size: 1.5rem;   /* 24px */
+  }
+  .text-4xl {
+    font-size: 1.5rem;   /* 24px */
+  }
+  .text-5xl {
+    font-size: 1.875rem; /* 30px */
+  }
+  .text-6xl {
+    font-size: 2.25rem;  /* 36px */
+  }
+}
+
+/* ---------- 字重 ---------- */
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+/* ---------- 字间距 ---------- */
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.tracking-normal {
+  letter-spacing: 0;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+/* ---------- 行高 ---------- */
+.leading-none {
+  line-height: 1;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-snug {
+  line-height: 1.375;
+}
+
+.leading-normal {
+  line-height: 1.6;
+}
+
+.leading-relaxed {
+  line-height: 1.75;
+}
+
+.leading-loose {
+  line-height: 2;
+}
+
+/* ---------- 字体族 ---------- */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* ---------- 文本颜色 ---------- */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-ink {
+  color: var(--color-ink);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+/* ---------- 文本装饰 ---------- */
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* ---------- 文本截断 ---------- */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

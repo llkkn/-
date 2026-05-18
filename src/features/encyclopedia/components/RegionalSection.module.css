@@ -1,0 +1,276 @@
+.section {
+  padding: var(--space-20) 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  color: var(--color-ink);
+  text-align: center;
+  margin-bottom: var(--space-3);
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+  margin: var(--space-4) auto 0;
+  border-radius: var(--radius-full);
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 1.0625rem;
+  margin-bottom: var(--space-12);
+  font-family: var(--font-serif);
+}
+
+/* ---------- 卡片列表 ---------- */
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.card {
+  overflow: hidden;
+  transition: box-shadow var(--transition-base) var(--ease-out);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---------- 卡片头部 ---------- */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.headerLeft {
+  flex: 1;
+}
+
+.regionName {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+}
+
+.divider {
+  color: var(--color-border);
+}
+
+.heritage {
+  padding: 2px var(--space-2);
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.cardImage {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border-light);
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- 描述 ---------- */
+.description {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+/* ---------- 特色列表（收起状态） ---------- */
+.features {
+  margin-bottom: var(--space-4);
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.featureDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ---------- 展开按钮 ---------- */
+.expandBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--color-border-light);
+  width: 100%;
+  transition: opacity var(--transition-fast);
+}
+
+.expandBtn:hover {
+  opacity: 0.8;
+}
+
+.expandIcon {
+  transition: transform var(--transition-base) var(--ease-out);
+}
+
+.expandIcon.expanded {
+  transform: rotate(180deg);
+}
+
+/* ---------- 展开内容 ---------- */
+.expandContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--duration-slow) var(--ease-out),
+              opacity var(--duration-base) var(--ease-out);
+  opacity: 0;
+}
+
+.expandContent.show {
+  max-height: 800px;
+  opacity: 1;
+}
+
+.detailSection {
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.detailSection:first-child {
+  border-top: none;
+  padding-top: var(--space-4);
+}
+
+.detailTitle {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-3);
+}
+
+.detailList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.detailDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.detailText {
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- 代表面具 ---------- */
+.maskList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.maskItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+}
+
+.maskName {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.maskDesc {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.875rem;
+  }
+
+  .subtitle {
+    font-size: 0.9375rem;
+  }
+
+  .cardHeader {
+    flex-direction: column-reverse;
+  }
+
+  .cardImage {
+    width: 100%;
+    height: 160px;
+    border-radius: var(--radius-md);
+  }
+}

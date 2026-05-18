@@ -1,0 +1,95 @@
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  background-color: var(--color-dark);
+  border-right: 1px solid var(--color-gold-dark);
+  padding: var(--space-2) var(--space-1);
+  gap: var(--space-1);
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.toolBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-gold-light);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.toolBtn:hover {
+  background-color: rgba(201, 169, 110, 0.12);
+  border-color: rgba(201, 169, 110, 0.3);
+}
+
+.toolBtn.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(178, 34, 34, 0.35);
+}
+
+/* Tooltip */
+.toolBtn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 10px;
+  background-color: var(--color-ink);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  z-index: var(--z-tooltip);
+}
+
+.toolBtn:hover::after {
+  opacity: 1;
+}
+
+/* ---------- 移动端适配 ---------- */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--color-gold-dark);
+    padding: var(--space-2);
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .toolBtn {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  /* 移动端tooltip隐藏 */
+  .toolBtn::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

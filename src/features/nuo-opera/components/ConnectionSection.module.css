@@ -1,0 +1,231 @@
+.section {
+  padding: var(--space-20) var(--space-6);
+  background-color: var(--color-bg-old);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- 标题 ---------- */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.decorLine {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold),
+    transparent
+  );
+  margin: 0 auto var(--space-6);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 400;
+  color: var(--color-ink);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+/* ---------- 对比布局 ---------- */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+/* ---------- 面板 ---------- */
+.panel {
+  padding: var(--space-8);
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out) 200ms,
+              transform var(--duration-slow) var(--ease-out) 200ms;
+}
+
+.panelLeft {
+  transform: translateX(-20px);
+}
+
+.panelRight {
+  transform: translateX(20px);
+}
+
+.panel.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.panelIcon {
+  font-size: 2rem;
+  margin-bottom: var(--space-3);
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-ink);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-3);
+}
+
+.panelDecorLine {
+  width: 40px;
+  height: 2px;
+  background: var(--color-gold);
+  margin-bottom: var(--space-4);
+}
+
+.panelText {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.panelText:last-of-type {
+  margin-bottom: var(--space-5);
+}
+
+.panelLink {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.panelLink:hover {
+  color: var(--color-primary-dark);
+}
+
+/* ---------- 中间连接 ---------- */
+.connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--space-16);
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out) 400ms;
+}
+
+.connector.visible {
+  opacity: 1;
+}
+
+.connectorLine {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--color-gold));
+}
+
+.connectorCircle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-card);
+  margin: var(--space-3) 0;
+}
+
+.connectorText {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.1em;
+}
+
+.connectorArrows {
+  margin-top: var(--space-2);
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.connectorLine:last-child {
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-gold), transparent);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .compare {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .connector {
+    flex-direction: row;
+    padding-top: 0;
+    padding: var(--space-2) 0;
+  }
+
+  .connectorLine {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-gold));
+  }
+
+  .connectorLine:last-child {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(to right, var(--color-gold), transparent);
+  }
+
+  .panelLeft,
+  .panelRight {
+    transform: translateY(20px);
+  }
+
+  .panel.visible {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .panel {
+    padding: var(--space-5);
+  }
+}

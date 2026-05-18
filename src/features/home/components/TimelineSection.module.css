@@ -1,0 +1,193 @@
+.timeline {
+  padding: var(--space-24) var(--space-6);
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 400;
+  color: var(--color-ink);
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--color-gold);
+  margin: var(--space-4) auto 0;
+  border-radius: 2px;
+}
+
+/* 时间线容器 */
+.timelineList {
+  position: relative;
+  padding: var(--space-4) 0;
+}
+
+/* 中间竖线 */
+.timelineList::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-gold) 5%,
+    var(--color-gold) 95%,
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+/* 单个节点 */
+.item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--space-12);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+/* 奇数节点：年份在左，内容在右 */
+.itemLeft {
+  flex-direction: row;
+  padding-right: calc(50% + 30px);
+  text-align: right;
+}
+
+/* 偶数节点：内容在左，年份在右 */
+.itemRight {
+  flex-direction: row-reverse;
+  padding-left: calc(50% + 30px);
+  text-align: left;
+}
+
+/* 中间圆点 */
+.dot {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  background: var(--color-bg);
+  border: 3px solid var(--color-gold);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  transition: background-color var(--transition-base) var(--ease-out),
+              box-shadow var(--transition-base) var(--ease-out);
+}
+
+.item.visible .dot {
+  background-color: var(--color-gold);
+  box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.2);
+}
+
+/* 年份 */
+.year {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-gold-dark);
+  font-weight: 400;
+  white-space: nowrap;
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.05em;
+}
+
+/* 内容卡片 */
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base) var(--ease-out);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-3);
+}
+
+.cardDescription {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .timelineList::before {
+    left: 20px;
+  }
+
+  .itemLeft,
+  .itemRight {
+    flex-direction: row;
+    padding-right: 0;
+    padding-left: 50px;
+    text-align: left;
+  }
+
+  .dot {
+    left: 20px;
+  }
+
+  .year {
+    margin-bottom: var(--space-1);
+  }
+}
+
+@media (max-width: 576px) {
+  .timeline {
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .card {
+    padding: var(--space-4);
+  }
+}
