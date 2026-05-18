@@ -6,8 +6,8 @@ import Loading from '@/shared/ui/Loading';
 
 /* ---------- 懒加载页面组件 ---------- */
 const Home = lazy(() => import('@/features/home/Home'));
-const Encyclopedia = lazy(() => import('@/features/encyclopedia/Encyclopedia'));
-const Gallery = lazy(() => import('@/features/gallery/Gallery'));
+const Encyclopedia = lazy(() => import('@/pages/Wiki'));
+const Gallery = lazy(() => import('@/pages/Gallery'));
 const DIYStudio = lazy(() => import('@/features/diy/DIYStudio'));
 const Community = lazy(() => import('@/features/community/Community'));
 const PostDetail = lazy(() => import('@/features/community/components/PostDetail'));

@@ -1,12 +1,5 @@
-import styles from './Placeholder.module.css';
+import Encyclopedia from '@/features/encyclopedia/Encyclopedia';
 
 export default function Wiki() {
-  return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>傩面百科</h1>
-        <p className={styles.desc}>页面建设中，敬请期待...</p>
-      </div>
-    </div>
-  );
+  return <Encyclopedia />;
 }
