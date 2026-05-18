@@ -5,11 +5,11 @@ import regionalStyles from '@/features/encyclopedia/data/regionalStyles';
 import styles from './RegionalSection.module.css';
 
 const regionImages = {
-  pingxiang: '/images/masks/pingxiang/zhongkui.jpg',
-  chizhou: '/images/masks/chizhou/baogong.jpg',
-  anshun: '/images/masks/anshun/wenjiang.jpg',
-  wuan: '/images/masks/wuan/kailu.jpg',
-  luxi: '/images/masks/luxi/kaishan-luxi.jpg',
+  pingxiang: '/-/images/masks/pingxiang/zhongkui.jpg',
+  chizhou: '/-/images/masks/chizhou/baogong.jpg',
+  anshun: '/-/images/masks/anshun/wenjiang.jpg',
+  wuan: '/-/images/masks/wuan/kailu.jpg',
+  luxi: '/-/images/masks/luxi/kaishan-luxi.jpg',
 };
 
 const regionColors = {

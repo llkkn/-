@@ -22,7 +22,7 @@ export default function IntroSection() {
         >
           <div className={styles.imageWrapper}>
             <img
-              src="/images/masks/anshun/wujiang.jpg"
+              src="/-/images/masks/anshun/wujiang.jpg"
               alt="傩面展示"
               loading="lazy"
             />

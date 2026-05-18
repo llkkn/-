@@ -52,7 +52,7 @@ export default function OverviewSection() {
           <div className={`${styles.image} ${imageVisible ? styles.visible : ''}`} ref={imageRef}>
             <div className={styles.imageFrame}>
               <img
-                src="/images/masks/anshun/wujiang.jpg"
+                src="/-/images/masks/anshun/wujiang.jpg"
                 alt="傩戏面具"
                 loading="lazy"
               />

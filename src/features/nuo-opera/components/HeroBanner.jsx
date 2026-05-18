@@ -15,7 +15,7 @@ export default function HeroBanner() {
       {/* 背景图片 */}
       <div className={styles.background}>
         <img
-          src="/images/hero/hero-banner.webp"
+          src="/-/images/hero/hero-banner.webp"
           alt="傩戏背景"
           loading="eager"
         />
